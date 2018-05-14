@@ -10,10 +10,10 @@
 #' @export
 size.of.clusters <- function(peaks, cut.off = 20){
 
-        r.peaks$BS <- round((start(r.peaks) + end(r.peaks))/2)
+        peaks$BS <- round((start(peaks) + end(peaks))/2)
         chrs <- seqlevels(peaks)
         r.out <- vector()
-        r.peaks <- as.data.frame(r.peaks)
+        peaks <- as.data.frame(peaks)
 
         t <- function(i, peaks.df, cut.off){
                 peaks.on.chr <- peaks.df[peaks.df$seqnames == i,]
@@ -22,6 +22,6 @@ size.of.clusters <- function(peaks, cut.off = 20){
                 sapply(unique(cut.peaks), function(x) base::sum(cut.peaks == x))
         }
 
-        r.out <- unlist(bplapply(chrs, t, r.peaks, cut.off))
+        r.out <- unlist(bplapply(chrs, t, peaks, cut.off))
         return(r.out)
 }
