@@ -5,7 +5,7 @@
 \title{peaks.near.TSS}
 \usage{
 peaks.near.TSS(peaks, sites, range = c(-2000, 2000), ignor.strand = F,
-  vertical.facet = T, horizonatl.facet = T, wrap.facet = T,
+  vertical.facet = F, horizonatl.facet = F, warp.facet = T,
   x.label = "Coordinates", y.label = "Density", legend.title = "TF",
   wide.of.line = 0.7, axis.text.size = 8, axis.title.size = 12,
   legend.title.size = 12, legend.text.size = 10, vertical.line = 0)
@@ -20,6 +20,8 @@ peaks.near.TSS(peaks, sites, range = c(-2000, 2000), ignor.strand = F,
 \item{ignor.strand}{is a boolean and used when strand of sites is '*'}
 
 \item{vertical.facet}{TRUE for making vertical facet (useful when you have a lot of different TFs or Conditions)}
+
+\item{warp.facet}{TRUE for making warp facet (useful if there are a lot of TFs)}
 
 \item{x.label}{is a name of x axis}
 
@@ -40,8 +42,6 @@ peaks.near.TSS(peaks, sites, range = c(-2000, 2000), ignor.strand = F,
 \item{vertical.line}{is a coordinate of vertical line on plot}
 
 \item{horizontal.facet}{TRUE for making vertical facet (useful when you have TF and Condition colums)}
-
-\item{warp.facet}{TRUE for making warp facet (useful if there are a lot of TFs)}
 }
 \value{
 ggplot object

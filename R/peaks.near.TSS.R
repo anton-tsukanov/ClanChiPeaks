@@ -22,8 +22,8 @@
 #' @return ggplot object
 #' @import IRanges GenomicRanges ggplot2
 #' @export
-peaks.near.TSS <- function(peaks, sites, range = c(-2000, 2000), ignor.strand = F, vertical.facet = T,
-                               horizonatl.facet = T, wrap.facet = T, x.label = 'Coordinates', y.label = 'Density',
+peaks.near.TSS <- function(peaks, sites, range = c(-2000, 2000), ignor.strand = F, vertical.facet = F,
+                               horizonatl.facet = F, warp.facet = T, x.label = 'Coordinates', y.label = 'Density',
                                legend.title = 'TF', wide.of.line = 0.7, axis.text.size = 8, axis.title.size = 12,
                                legend.title.size = 12, legend.text.size = 10, vertical.line = 0){
 
