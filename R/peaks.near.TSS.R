@@ -9,7 +9,7 @@
 #' @param ignor.strand is a boolean and used when strand of sites is '*'
 #' @param vertical.facet TRUE for making vertical facet (useful when you have a lot of different TFs or Conditions)
 #' @param horizontal.facet TRUE for making vertical facet (useful when you have TF and Condition colums)
-#' @param warp.facet TRUE for making warp facet (useful if there are a lot of TFs)
+#' @param wrap.facet TRUE for making wrap facet (useful if there are a lot of TFs)
 #' @param x.label is a name of x axis
 #' @param y.label is a name of y axis
 #' @param legend.title is a title of legend
@@ -23,7 +23,7 @@
 #' @import IRanges GenomicRanges ggplot2
 #' @export
 peaks.near.TSS <- function(peaks, sites, range = c(-2000, 2000), ignor.strand = F, vertical.facet = F,
-                               horizonatl.facet = F, warp.facet = T, x.label = 'Coordinates', y.label = 'Density',
+                               horizonatl.facet = F, wrap.facet = T, x.label = 'Coordinates', y.label = 'Density',
                                legend.title = 'TF', wide.of.line = 0.7, axis.text.size = 8, axis.title.size = 12,
                                legend.title.size = 12, legend.text.size = 10, vertical.line = 0){
 
@@ -156,8 +156,8 @@ peaks.near.TSS <- function(peaks, sites, range = c(-2000, 2000), ignor.strand = 
         if(vertical.facet & length(unique(df.with.cov$TF)) == 1 & !is.null(peaks$Condition)){pic <- pic + facet_grid(Condition ~ .)}
         if(vertical.facet & length(unique(df.with.cov$TF)) == 1){pic <-  pic + facet_grid(Condition ~ .)}
         if(horizonatl.facet & !is.null(peaks$Condition)) {pic <- pic + facet_grid(. ~ Condition)}
-        if(vertical.facet & !warp.facet){pic <- pic + facet_grid(TF ~ .)}
-        if(warp.facet){pic <- pic + facet_warp(TF)}
+        if(vertical.facet & !wrap.facet){pic <- pic + facet_grid(TF ~ .)}
+        if(wrap.facet){pic <- pic + facet_wrap(TF)}
 
 
         return(pic)
