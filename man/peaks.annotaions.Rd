@@ -4,7 +4,7 @@
 \alias{peaks.annotaions}
 \title{peaks.annotaions}
 \usage{
-peaks.annotaions(peaks, ref, is.Ratio)
+peaks.annotaions(peaks, ref, is.Ratio = T)
 }
 \arguments{
 \item{peaks}{is a GenomeRanges object with matadata colum that is named 'TF' (TF - Transcroption factor) and contain name for each peaks}

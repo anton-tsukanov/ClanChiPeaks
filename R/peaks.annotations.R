@@ -9,7 +9,7 @@
 #' @return data.frame
 #' @import IRanges GenomicRanges GenomicFeatures ggplot2
 #' @export
-peaks.annotaions <- function(peaks, ref, is.Ratio){
+peaks.annotaions <- function(peaks, ref, is.Ratio = T){
 
         ref.promoters <- promoters(genes(ref))
         ref.exons <- unlist(exonsBy(ref, by = 'tx'))
@@ -29,17 +29,17 @@ peaks.annotaions <- function(peaks, ref, is.Ratio){
                                   inIntergenic = rep(integer(1), length(tfs)))
 
         #Calculating summory about TFs
-        for (i in tfs){
+        for (i in tfs) {
                 tf <- peaks[peaks$TF == i]
-                in.promoters <- length(subsetByOverlaps(tf, ref.promoters))
-                in.introns <- length(subsetByOverlaps(tf, ref.introns))
-                in.exons <- length(subsetByOverlaps(tf, ref.exons))
-                in.5UTR <- length(subsetByOverlaps(tf, ref.5UTR))
-                in.3UTR <- length(subsetByOverlaps(tf, ref.3UTR))
+                in.promoters <- length(subsetByOverlaps(tf, ref.promoters, type = 'within'))
+                in.introns <- length(subsetByOverlaps(tf, ref.introns, type = 'within'))
+                in.exons <- length(subsetByOverlaps(tf, ref.exons, type = 'within'))
+                in.5UTR <- length(subsetByOverlaps(tf, ref.5UTR, type = 'within'))
+                in.3UTR <- length(subsetByOverlaps(tf, ref.3UTR, type = 'within'))
+                in.intergenic <- length(tf) - (length(subsetByOverlaps(tf, promoters(genes(ref), upstream = 2000, downstream = 0), type = 'within')) + length(subsetByOverlaps(tf, genes(ref), type = 'within')))
 
-                in.intergenic <- length(tf) - (in.promoters + in.introns + in.exons + in.5UTR + in.3UTR)
-                tfs.summary[tfs.summary$TF == i, 2:7] <- c(in.promoters, in.5UTR, in.exons, in.introns,
-                                                           in.3UTR, in.intergenic)
+
+                tfs.summary[tfs.summary$TF == i, 2:7] <- c(in.promoters, in.5UTR, in.exons, in.introns, in.3UTR, in.intergenic)
 
         }
 
