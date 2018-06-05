@@ -150,9 +150,8 @@ peaks.near.TSS <- function(peaks, sites, range = c(-2000, 2000), ignor.strand = 
                 theme_linedraw()+
                 theme(axis.text=element_text(size=axis.text.size),
                       axis.title=element_text(size=axis.title.size,face="bold"),
-                      strip.text.y = element_text(size = 9),
                       legend.title = element_text(size = legend.title.size),
-                      legend.text=element_text(size = legend.text.size),
+                      legend.text = element_text(size = legend.text.size),
                       strip.text = element_text(size = 14))
 
         if(vertical.facet & length(unique(df.with.cov$TF)) == 1 & !is.null(peaks$Condition)){pic <- pic + facet_grid(Condition ~ .) + labs(colour = legend.title)}
