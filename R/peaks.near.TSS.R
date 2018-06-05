@@ -157,7 +157,7 @@ peaks.near.TSS <- function(peaks, sites, range = c(-2000, 2000), ignor.strand = 
         if(vertical.facet & length(unique(df.with.cov$TF)) == 1){pic <-  pic + facet_grid(Condition ~ .)}
         if(horizonatl.facet & !is.null(peaks$Condition)) {pic <- pic + facet_grid(. ~ Condition)}
         if(vertical.facet & !wrap.facet){pic <- pic + facet_grid(TF ~ .)}
-        if(wrap.facet){pic <- pic + facet_wrap(TF)}
+        if(wrap.facet){pic <- pic + facet_wrap(~TF)}
 
 
         return(pic)
