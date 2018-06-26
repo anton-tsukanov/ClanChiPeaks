@@ -4,7 +4,7 @@
 \alias{size.of.clusters}
 \title{Calculation sizes of clusters}
 \usage{
-size.of.clusters(peaks, cut.off = 20)
+size.of.clusters(peaks, cut.off = 25)
 }
 \arguments{
 \item{peaks}{is a GenomeRanges object}
