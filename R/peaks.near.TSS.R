@@ -167,7 +167,7 @@ peaks.near.TSS <- function(peaks, sites, range = c(-2000, 2000), ignor.strand = 
 #' @import IRanges GenomicRanges
 calc.cov.on.sites <- function(cov, sites, len){
 
-        vi <- Views(cov, as(sites, 'RangesList'))
+        vi <- Views(cov, as(sites, 'IRangesList'))
         cov.of.sites <- lapply(vi, function(x) viewApply(x,
                                                          function(el){
                                                                  el <- as.vector(el)

@@ -8,7 +8,7 @@
 #' @return vector of cluster sizes
 #' @import GenomicRanges GenomicFeatures fastcluster BiocParallel
 #' @export
-size.of.clusters <- function(peaks, cut.off = 20){
+size.of.clusters <- function(peaks, cut.off = 25){
 
         peaks$BS <- round((start(peaks) + end(peaks))/2)
         chrs <- seqlevels(peaks)
