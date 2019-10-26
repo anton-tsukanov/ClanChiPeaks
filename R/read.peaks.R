@@ -9,9 +9,10 @@
 #' @export
 read.peaks <- function(files) {
         peaks <- lapply(files, read.csv, sep = '\t')
-        names(peaks) <- gsub('.csv','', files)
+        names(peaks) <- gsub('.bed','', files)
         out <- list()
         for (i in names(peaks)){
+                names(peaks[[i]]) <- c("chr", "start", "end")
                 data <-  makeGRangesFromDataFrame(peaks[[i]], keep.extra.columns = T)
                 data <- data[,-1]
                 data$TF <- i
