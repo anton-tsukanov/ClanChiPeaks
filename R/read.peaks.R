@@ -8,7 +8,7 @@
 #' @import GenomicRanges
 #' @export
 read.peaks <- function(files) {
-        peaks <- lapply(files, read.csv, sep = ';')
+        peaks <- lapply(files, read.csv, sep = '\t')
         names(peaks) <- gsub('.csv','', files)
         out <- list()
         for (i in names(peaks)){
