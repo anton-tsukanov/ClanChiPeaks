@@ -10,7 +10,7 @@
 #' @import IRanges GenomicRanges GenomicFeatures fastcluster BiocParallel
 #' @export
 peaks.clustering <- function(peaks, cut.off = 20, min.size = 1) {
-        peaks$BS <- round((start(peaks) + end(peaks))/2)
+        #peaks$BS <- round((start(peaks) + end(peaks))/2)
         chrs <- seqlevels(peaks)
         chrs <- sapply(chrs, cheking, peaks)
         chrs <- chrs[!sapply(chrs, is.null)]
